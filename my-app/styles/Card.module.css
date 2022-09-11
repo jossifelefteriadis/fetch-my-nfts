@@ -1,0 +1,20 @@
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25rem;
+  height: 20rem;
+  border: 0.5px solid #9b9b9b;
+  border-radius: 7px;
+  margin: 2rem;
+}
+
+.cardContainer h1 {
+    color: #e78db3;
+    font-size: 1.2rem;
+}
+
+.cardContainer img {
+  width: 20rem;
+  height: 11.2rem;
+}

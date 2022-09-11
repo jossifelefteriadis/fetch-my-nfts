@@ -23,8 +23,7 @@ export default function Home() {
       {isLoggedIn ? (
         <main className={styles.main}>
           <h1 className={styles.title} style={{ marginBottom: "4rem" }}>
-            Connect your Metamask and see your <span>LW3</span> and{" "}
-            <span>Buildspace</span> NFT&apos;s
+            Connect your Metamask and see your <span>Polygon</span> owned <span>NFT&apos;s</span>
           </h1>
           <ConnectButton />
         </main>

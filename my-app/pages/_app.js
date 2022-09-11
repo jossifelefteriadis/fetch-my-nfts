@@ -17,7 +17,7 @@ const { chains, provider } = configureChains(
     chain.goerli,
     chain.rinkeby,
   ],
-  [alchemyProvider({ alchemyId: process.env.ALCHEMY_ID }), publicProvider()]
+  [alchemyProvider({ apiKey: process.env.ALCHEMY_ID }), publicProvider()]
 );
 
 const { connectors } = getDefaultWallets({
