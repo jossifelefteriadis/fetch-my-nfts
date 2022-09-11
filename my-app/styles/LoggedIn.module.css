@@ -1,0 +1,26 @@
+.loggedInMain {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-content: space-around;
+    background-color: #1b202b5b;
+  }
+  
+  .loggedInInfo {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .loggedInAccount {
+    padding: 0 2rem;
+    text-align: center;
+    width: 25rem;
+    height: 26rem;
+    border: 0.5px solid #9b9b9b;
+    border-radius: 7px;
+  }
+  
+  .loggedInAccount h2 {
+    color: #e78db3;
+  }
