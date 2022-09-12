@@ -5,10 +5,12 @@ export default function Card(props) {
   const [nft, setNft] = useState(JSON.parse(props.uri.metadata))
   const [nftImage, setNftImage] = useState(() => {
     if (nft?.image) {
-        return nft.image.split("ipfs://")[1]
+        return nft.image.includes('ipfs') ? 
+        `https://ipfs.io/ipfs/${nft.image.split('ipfs://')[1]}` :
+          nft.image.split('\\')[0];
+        }
     }
-    return "";
-  })
+  )
 
   return (
     <section className={styles.cardContainer}>
@@ -18,7 +20,7 @@ export default function Card(props) {
         <h1>No NFT title can be shown.</h1>
       )}
       {nftImage ? (
-        <img src={`https://ipfs.io/ipfs/${nftImage}`} />
+        <img src={nftImage} />
       ) : (
         <p>No NFT image can be shown.</p>
       )}
