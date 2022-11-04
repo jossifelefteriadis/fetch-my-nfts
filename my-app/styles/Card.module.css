@@ -7,14 +7,17 @@
   border: 0.5px solid #9b9b9b;
   border-radius: 7px;
   margin: 2rem;
+  padding: 0 2rem;
 }
 
 .cardContainer h1 {
-    color: #e78db3;
-    font-size: 1.2rem;
+  color: #e78db3;
+  font-size: 1.2rem;
+  text-align: center;
 }
 
 .cardContainer img {
-  width: 20rem;
+  width: 17rem;
   height: 11.2rem;
+  object-fit: cover;
 }
