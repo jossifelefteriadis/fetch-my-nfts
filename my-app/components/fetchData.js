@@ -1,4 +1,5 @@
 import { useAccount } from "wagmi";
+import axios from "axios";
 import { useEffect, useState } from "react";
 import Card from "./card";
 import styles from "../styles/FetchData.module.css";
@@ -6,33 +7,33 @@ import styles from "../styles/FetchData.module.css";
 export default function FetchData() {
   const { address } = useAccount();
   const [data, setData] = useState([]);
+  const key = process.env.NEXT_PUBLIC_Moralis_Key;
 
-    const options = {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        "X-API-Key": "test",
-      },
-    };
+  const options = {
+    method: "GET",
+    url: `https://deep-index.moralis.io/api/v2/${address}/nft`,
+    params: { chain: "polygon", format: "decimal" },
+    headers: {
+      accept: "application/json",
+      "X-API-Key": key,
+    },
+  };
 
-    useEffect(() => {
-      fetch(
-        `https://deep-index.moralis.io/api/v2/${address}/nft?chain=polygon&format=decimal`,
-        options
-      )
-        .then((response) => response.json())
-        .then((response) => {
-          setData(response.result);
-        })
-        .catch((err) => console.error(err));
-    }, [])
+  useEffect(() => {
+    axios
+      .request(options)
+      .then((response) => {
+        setData(response.data.result);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  }, []);
 
   return (
     <section className={styles.dataContainer}>
-      {data.map(nft => {
-        return (
-          <Card uri={nft} key={nft.block_number_minted} />
-        )
+      {data.map((nft) => {
+        return <Card uri={nft} key={nft.block_number_minted} />;
       })}
     </section>
   );
