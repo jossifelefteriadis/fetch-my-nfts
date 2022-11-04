@@ -12,12 +12,8 @@ import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
 
 const { chains, provider } = configureChains(
-  [
-    chain.mainnet,
-    chain.goerli,
-    chain.rinkeby,
-  ],
-  [alchemyProvider({ apiKey: process.env.ALCHEMY_ID }), publicProvider()]
+  [chain.mainnet, chain.goerli, chain.rinkeby],
+  [alchemyProvider({ apiKey: process.env.Alchemy_Key }), publicProvider()]
 );
 
 const { connectors } = getDefaultWallets({
