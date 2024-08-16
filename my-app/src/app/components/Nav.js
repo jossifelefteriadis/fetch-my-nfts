@@ -1,8 +1,9 @@
-import styles from "../styles/Nav.module.css";
-import Link from "next/link";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
-import { useAccount } from "wagmi";
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { useAccount } from "wagmi";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
+
+import styles from "./Nav.module.css";
 
 export default function Nav() {
   const { isConnected } = useAccount();
@@ -17,9 +18,9 @@ export default function Nav() {
   }, [isConnected]);
 
   return (
-    <div className={styles.navContainer}>
+    <section className="h-16 flex flex-row justify-between items-center px-8">
       <Link href="/">
-        <h1 className={styles.title}>
+        <h1 className="text-4xl cursor-pointer">
           <span className={`${styles.titleWord} ${styles.titleWord1}`}>MY</span>
           <span className={`${styles.titleWord} ${styles.titleWord2}`}>
             NFT
@@ -29,10 +30,10 @@ export default function Nav() {
       {isLoggedIn && (
         <ul className={styles.navItems}>
           <li>
-            <ConnectButton />
+            <ConnectButton showBalance={false} />
           </li>
         </ul>
       )}
-    </div>
+    </section>
   );
 }
